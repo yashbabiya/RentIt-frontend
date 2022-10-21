@@ -1,0 +1,23 @@
+.footer{
+    background: black;
+    *{
+
+        color: white;
+    }
+    .mid{
+        display: flex;
+        gap: 3em;
+    }
+    .bottom{
+        color: white;
+        width: 100%;
+    }
+    .end{
+        display: flex;
+        gap: 1em;
+        i{
+            font-size: 2rem;
+        }
+    }
+
+}
