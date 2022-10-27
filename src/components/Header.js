@@ -25,7 +25,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="header padd">
+    <div className="header ">
       {user.isLoggedIn ? (
         <nav>
           <NavLink to="/">
@@ -90,7 +90,7 @@ export default function Header() {
               {/* Queries */}{" "}
             </Link>
 
-            <Link to="/queries">
+            <Link to="/requests">
               {" "}
               <i
                 className="im im-newsletter

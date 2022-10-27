@@ -41,7 +41,7 @@ export default function Login() {
       setIsLoading(false)
   }
   return (
-    <motion.div className=" login flex"
+    <motion.div className="login flex"
     initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -49,6 +49,7 @@ export default function Login() {
     >
       <div className="left flex-col">
         <Logo />
+        
         <div className="form flex-col">
           <div className="flex-col">
             <div>

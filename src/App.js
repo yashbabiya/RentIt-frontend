@@ -23,6 +23,7 @@ import { AnimatePresence } from "framer-motion";
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Chat from "./components/Chat";
 import Layout from "./Layout";
+import ProductRequest from "./pages/ProductRequest";
 
 function App() {
  
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="editProfile" element={<><EditProfile /> </>} />
               <Route exact path="editProduct" element={<><EditProduct /> </>} />
               <Route exact path="addreview" element={<><AddReview /> </>} />
+              <Route exact path="requests" element={<><ProductRequest /> </>} />
 
 
               <Route exact path="queries" element={<><Queries /> </>} />

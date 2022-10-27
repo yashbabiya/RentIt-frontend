@@ -1,70 +1,71 @@
-.header{
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    nav{
-        display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    }
-    .blue{
-        padding: .8em 1.6em;
-        border-radius: .7em;
-        font-weight: bold;
-    }
-    .logo{
-        width: max-content;
-    }
-    .mid{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: .8em;
-        width: 100%;
-    }
-    .actions{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 1em;
-        // width: 100%;
-    }
-    a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: .5em;
-        font-size: 1em;
-    }
-    i{
-        // display: none;
-        font-size: 1.5em;
+  }
+  .blue {
+    padding: 0.8em 1.6em;
+    border-radius: 0.7em;
+    font-weight: bold;
+  }
+  .logo {
+    width: max-content;
+  }
+  .mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+    width: 100%;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    // width: 100%;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1em;
+  }
+  i {
+    // display: none;
+    font-size: 1.5em;
 
-        // color: gray;
-    }
-    .profile{
-        width: 2em;
-        height: 2em;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid gray;
-    }
+    // color: gray;
+  }
+  .profile {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid gray;
+  }
 
-    .search{
-        background-color: rgb(213, 213, 213);
-        padding-left: 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-        border-radius: .4em;
-        input{
-            outline: none;
-        }
-        i{
-            font-size: 1em;
-            color:gray
-        }
+  .search {
+    background-color: rgb(213, 213, 213);
+    padding-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border-radius: 0.4em;
+    input {
+      outline: none;
     }
+    i {
+      font-size: 1em;
+      color: gray;
+    }
+  }
 }

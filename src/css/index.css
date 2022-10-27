@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1em 1em;
 }
 .header nav {
   display: flex;
@@ -339,7 +340,68 @@
 }
 
 .mytools .btns {
-  margin: 2em 0;
+  display: flex;
+  gap: 0.5em;
+  margin: 0.5em 0em;
+}
+.mytools .tabs {
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+.mytools .listProduct {
+  display: flex;
+  flex-direction: column;
+}
+.mytools .listProduct .cards {
+  padding: 1em;
+  outline: 2px solid black;
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+.mytools .listProduct .cards .product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.mytools .listProduct .cards .borrowerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.mytools .listProduct .cards .borrowerInfo img {
+  width: 2em;
+  height: 2em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.mytools .listProduct .cards .contract {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.mytools .listProduct .cards .actions {
+  display: flex;
+  gap: 1em;
+}
+.mytools .listProduct .cards .actions button {
+  padding: 1em 1.2em;
+}
+.mytools .listProduct .cards img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 0.1px gray;
+  cursor: pointer;
 }
 
 .queries {
@@ -1099,6 +1161,16 @@
   }
 }
 
+.requestPage .btns {
+  display: flex;
+  gap: 0.5em;
+  margin: 0.5em 0em;
+}
+.requestPage .tabs {
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
 html {
   font-size: 80%;
 }
@@ -1138,7 +1210,7 @@ h1, h2, h3, h4 {
 
 h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   width: 100%;
 }
 
@@ -1178,9 +1250,8 @@ a {
 }
 
 .page {
-  padding: 2em;
+  padding: 1em;
   min-height: 80vh;
-  padding-top: 1em;
 }
 
 .padd {

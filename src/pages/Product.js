@@ -180,6 +180,19 @@ export default function Product() {
                   </button>
                 )
               }
+
+              {product.renterid !== user._id && product.borrowerid !== user._id
+                 &&(
+                  <button
+                    className="yellow"
+                    onClick={()=>addReview()}
+                  >
+                    Request product
+                  </button>
+                )
+              }
+
+
             </div>
           </div>
         </div>

@@ -32,6 +32,8 @@ $dred : #BB0303;
 @import './pages/assignProduct';
 @import './pages/addReview';
 @import './components/loder';
+@import './pages/productRequest';
+
 
 
 html
@@ -86,7 +88,7 @@ h1,h2,h3,h4{
 }
 h2 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
     width: 100%;
   }
 
@@ -125,9 +127,9 @@ a{
 }
 
 .page{
-    padding: 2em;
+    padding: 1em;
     min-height: 80vh;
-    padding-top: 1em;
+    // padding-top: 1em;
 }
 .padd{
     padding: 2em;
