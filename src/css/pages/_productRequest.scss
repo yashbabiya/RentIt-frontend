@@ -59,3 +59,32 @@
         
     
 }
+
+@media screen and (max-width:700px) {
+    
+    table{
+        border-width: 0 !important;
+
+    }
+    .titleFortable{
+        display: none;
+    }
+    tr{
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+        margin: 1em 0;
+        border-radius: 1em;
+        padding: 1em;
+        border: 1px solid black;
+        td{
+        border-style: none;
+        border-width: 0 !important;
+            .productimg{
+                height: 200px !important;
+            }   
+        }
+    }
+
+    
+}

@@ -2,6 +2,12 @@
     h2{
         text-align: left;
     }
+    .bottom{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    }
   .avatar {
     background-color: rgb(30, 30, 30);
     min-height: 400px;
@@ -87,6 +93,15 @@
     }
     input {
       display: none;
+    }
+  }
+}
+
+
+@media screen and (max-width : 547px){
+  .editProfile{
+    .bottom{
+      flex-direction: column;
     }
   }
 }

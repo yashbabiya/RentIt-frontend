@@ -118,6 +118,9 @@
 
   .bottom{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
     .ownerdetails,.reviews{
       width: 100%;
       .reviewlists{
@@ -187,4 +190,25 @@
 
   }
   
+}
+
+@media screen and (max-width : 930px){
+  .productpage{
+    h1{
+      font-size: 3em;
+    }
+    .top{
+      flex-direction: column;
+      .right{
+        padding: 1em 0;
+      }
+    }
+    .bottom{
+      flex-direction: column;
+      
+    }
+    .reviewlists{
+      padding: 1em 0 !important;
+    }
+  }
 }

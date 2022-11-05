@@ -84,3 +84,15 @@
   align-items: center;
   // margin-top: 3em;
 }
+
+@media screen and (max-width:830px) {
+  .explore{
+    .categories{
+      overflow-x: scroll;
+      justify-content: flex-start;
+      .filterpill{
+        // position: absolute;
+      }
+    }
+  }
+}

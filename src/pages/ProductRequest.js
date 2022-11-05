@@ -54,7 +54,7 @@ export default function ProductRequest() {
         const res = await axios.post(API+`/product/assign`,reqBody,{withCredentials:true})
 
         if(res.status < 400){
-          alert("Request successfully deleted")
+          alert("Request successfully accepted")
         }
 
         
@@ -73,7 +73,7 @@ export default function ProductRequest() {
         const res = await axios.get(API+`/request/decline?reqId=${id}`,{withCredentials:true})
 
         if(res.status < 400){
-          alert("Request successfully deleted")
+          alert("Request successfully rejected")
         }
 
         
@@ -121,7 +121,7 @@ export default function ProductRequest() {
             sented.length ? (
               <>
                 <table border={1}>
-                  <tr>
+                  <tr className="titleFortable">
                     <th>Image</th>
                     <th>Name</th>
                     <th>owner</th>
@@ -169,7 +169,7 @@ export default function ProductRequest() {
           ) : received.length ? (
             <>
             <table border={1}>
-                  <tr>
+                  <tr className="titleFortable">
                     <th>Image</th>
                     <th>Name</th>
                     <th>User</th>

@@ -2,6 +2,15 @@
 .footer {
   background: black;
 }
+.footer .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+.footer .top p {
+  text-align: center;
+}
 .footer * {
   color: white;
 }
@@ -91,6 +100,67 @@
   color: gray;
 }
 
+@media screen and (max-width: 1000px) {
+  .header input {
+    max-width: 10em;
+  }
+}
+@media screen and (max-width: 780px) {
+  .logo h1 {
+    font-size: 1.3em !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer {
+    padding-bottom: 5em !important;
+  }
+  .footer .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+  .header nav {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .header .loginButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.55em 1.2em;
+  }
+  .header .loginSearch {
+    margin-top: 1em;
+  }
+  .header .search {
+    min-width: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .header .mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header .actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 1em 1em;
+    z-index: 1000;
+    box-shadow: 0 0 10px 1px grey;
+    border-radius: 1em 1em 0 0;
+  }
+}
 .prodCard {
   min-width: 200px;
   max-width: 350px;
@@ -164,6 +234,10 @@
 .addproduct .form {
   width: 100%;
   margin: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
 }
 .addproduct .form .avatar {
   background-color: rgb(30, 30, 30);
@@ -215,8 +289,25 @@
   display: none;
 }
 
+@media screen and (max-width: 850px) {
+  .addproduct .form {
+    flex-direction: column;
+  }
+  .addproduct .form .avatar {
+    min-height: 300px !important;
+  }
+  .addproduct .form .avatarWrap {
+    min-height: 300px !important;
+  }
+}
 .editProfile h2 {
   text-align: left;
+}
+.editProfile .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
 }
 .editProfile .avatar {
   background-color: rgb(30, 30, 30);
@@ -291,8 +382,13 @@
   display: none;
 }
 
+@media screen and (max-width: 547px) {
+  .editProfile .bottom {
+    flex-direction: column;
+  }
+}
 .home .top {
-  min-height: 70vh;
+  min-height: 60vh;
   border-radius: 1em;
 }
 .home .top h1 {
@@ -339,6 +435,12 @@
   text-align: center;
 }
 
+@media screen and (max-width: 960px) {
+  .hero h1 {
+    font-size: 12vw !important;
+    line-height: 12vw !important;
+  }
+}
 .mytools .btns {
   display: flex;
   gap: 0.5em;
@@ -404,6 +506,11 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 520px) {
+  .cards {
+    flex-direction: column;
+  }
+}
 .queries {
   position: relative;
 }
@@ -445,6 +552,7 @@
 }
 .queries .wrapper {
   display: flex;
+  gap: 2em;
 }
 .queries .wrapper .left, .queries .wrapper .right {
   width: 100%;
@@ -466,6 +574,11 @@
   background-color: aqua;
 }
 
+@media screen and (max-width: 750px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
 .login {
   min-height: 100vh !important;
 }
@@ -521,8 +634,17 @@
 .sendemail {
   min-height: 100vh;
   width: 100%;
+  padding: 1em;
 }
 
+@media screen and (max-width: 900px) {
+  .login .left {
+    padding: 1em;
+  }
+  .login .right {
+    display: none;
+  }
+}
 .exploreTitle {
   font-size: 5rem;
   margin-bottom: 1em;
@@ -592,6 +714,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 830px) {
+  .explore .categories {
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+}
 .popup {
   position: fixed;
   top: 0;
@@ -701,6 +829,9 @@
 }
 .productpage .bottom {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
 }
 .productpage .bottom .ownerdetails, .productpage .bottom .reviews {
   width: 100%;
@@ -761,6 +892,23 @@
   color: #05396B;
 }
 
+@media screen and (max-width: 930px) {
+  .productpage h1 {
+    font-size: 3em;
+  }
+  .productpage .top {
+    flex-direction: column;
+  }
+  .productpage .top .right {
+    padding: 1em 0;
+  }
+  .productpage .bottom {
+    flex-direction: column;
+  }
+  .productpage .reviewlists {
+    padding: 1em 0 !important;
+  }
+}
 .assignproductpage .form {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -1222,6 +1370,30 @@
   padding: 1em 1.2em;
 }
 
+@media screen and (max-width: 700px) {
+  table {
+    border-width: 0 !important;
+  }
+  .titleFortable {
+    display: none;
+  }
+  tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    margin: 1em 0;
+    border-radius: 1em;
+    padding: 1em;
+    border: 1px solid black;
+  }
+  tr td {
+    border-style: none;
+    border-width: 0 !important;
+  }
+  tr td .productimg {
+    height: 200px !important;
+  }
+}
 html {
   font-size: 80%;
 }
@@ -1231,7 +1403,6 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  outline: blue 1px solid;
 }
 
 .logo {

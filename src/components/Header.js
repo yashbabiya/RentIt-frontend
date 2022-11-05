@@ -95,12 +95,12 @@ export default function Header() {
           </div>
         </nav>
       ) : (
-        <>
+        <nav>
           <Link to="/">
             <Logo />
           </Link>
           <div className="mid">
-            <div className="search">
+            <div className="search loginSearch">
             <SearchIcon sx={{fontSize:30 }}  color="action" />
 
 
@@ -118,10 +118,10 @@ export default function Header() {
               />
             </div>
           </div>
-          <Link to="/login" className="blue">
+          <Link to="/login" className="blue loginButton">
             Login
           </Link>
-        </>
+        </nav>
       )}
     </div>
   );

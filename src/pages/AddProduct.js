@@ -104,7 +104,7 @@ export default function AddProduct() {
     >
       <h2>Add Product</h2>
       <p className="red" style={{background:"none"}}>{error}</p>
-      <div className="form flex">
+      <div className="form">
         <div className="left">
           <div className="avatarWrap">
             <p>Image :</p>

@@ -63,4 +63,18 @@
 .sendemail{
     min-height: 100vh;
     width: 100%;
+    padding: 1em;
+}
+
+@media screen and (max-width:900px) {
+
+    .login{
+        .left{
+            padding: 1em;
+        }
+        .right{
+            display: none;
+        }
+    }
+    
 }

@@ -145,7 +145,7 @@ export default function EditProfile() {
           </div>
         </div>
 
-        <div className="bottom flex">
+        <div className="bottom">
           <div className="left">
             <div className="title">
               <p>Name : </p>

@@ -40,6 +40,7 @@
     }
     .wrapper{
         display: flex;
+        gap: 2em;
         .left,.right{
             width: 100%;
         }
@@ -61,4 +62,11 @@
             background-color: aqua;
         }
     }
+}
+
+@media screen and (max-width:750px) {
+    .wrapper{
+        flex-direction: column;
+    }
+    
 }

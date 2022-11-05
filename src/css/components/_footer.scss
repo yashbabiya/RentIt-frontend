@@ -1,5 +1,14 @@
 .footer{
     background: black;
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+        p{
+            text-align: center;
+          }
+    }
     *{
 
         color: white;

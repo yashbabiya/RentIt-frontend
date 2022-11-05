@@ -1,6 +1,6 @@
 .home{
     .top{
-        min-height: 70vh;
+        min-height: 60vh;
         // background: #000;
         border-radius: 1em;
     
@@ -50,6 +50,19 @@
         }
         p{
             text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width:960px){
+    .hero{
+        .top{
+
+
+        }
+        h1{
+            font-size: 12vw !important;
+            line-height: 12vw !important;
         }
     }
 }

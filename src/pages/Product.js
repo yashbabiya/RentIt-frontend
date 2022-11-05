@@ -216,7 +216,7 @@ export default function Product() {
           </div>
         </div>
 
-        <div className="bottom flex">
+        <div className="bottom">
           <div className="ownerdetails ">
             <h2>Owner Details</h2>
             <div className="left">

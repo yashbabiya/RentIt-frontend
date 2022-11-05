@@ -2,6 +2,10 @@
   .form {
     width: 100%;
     margin:2em 0;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
     .avatar {
       background-color: rgb(30, 30, 30);
       min-height: 600px;
@@ -58,6 +62,22 @@
       }
 
 
+    }
+  }
+}
+
+@media screen and (max-width:850px){
+  .addproduct{
+    .form{
+      flex-direction: column;
+      .avatar{
+        min-height: 300px  !important;
+
+      }
+      .avatarWrap{
+        min-height: 300px  !important;
+
+      }
     }
   }
 }

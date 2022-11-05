@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <div className="padd footer">
 
-      <div className="top flex-bet">
+      <div className="top">
 
       
       <div className="left">
@@ -19,7 +19,9 @@ export default function Footer() {
       </div>
       <div className="mid">
       <div className="bottom flex">
-      © All rights are reserved 2022-23
+      <p>
+        © All rights are reserved 2022-23
+        </p> 
       </div>
       </div>
       <div className="end ">
