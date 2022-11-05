@@ -1,5 +1,5 @@
 .chat{
-position: fixed;
+    position: fixed;
     bottom: 10px;
     right: 10px;
     display: flex;
@@ -7,12 +7,17 @@ position: fixed;
     justify-content: flex-end;
     align-items: flex-end;
     gap: .5em;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 1em;
 }
 
 .chatpopup{
-    width: 400px;
+    
     border-radius: 1em;
     padding: 1em;
+    width: 100%;
+   
 
     .userCard{
         display: flex;
@@ -26,6 +31,7 @@ position: fixed;
     display: flex;
     flex-direction: column;
     gap: 1em;
+    width: 100%;
     img{
         width: 50px;
         height: 50px;
@@ -35,7 +41,7 @@ position: fixed;
 }
 .chatBubble{
     border-radius: 50%;
-    padding: 1.5em 1.5em !important;
+    padding: 1em 1em !important;
     
     display: flex;
     justify-content: center;
@@ -43,7 +49,7 @@ position: fixed;
     background-color: $dgreen;
     color: $lgreen;
     i{
-    font-size: 2rem;
+        font-size: 2rem;
 
     }
 }

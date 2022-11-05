@@ -40,7 +40,11 @@ export default function Explore() {
   }, [x1]);
 
   useEffect(() => {
-    if (keyword) searchProducts();
+    if (keyword)
+    { 
+      searchProducts();
+    }
+
   }, [keyword]);
   useEffect(() => {
     if (!firstTime) searchProducts();
@@ -66,25 +70,29 @@ export default function Explore() {
     try {
       const res = await axios.get(
         API +
-          `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=${page}&limit=${2}`
+          `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=${page}&limit=${10}`
       );
 
       // console.log(res.data);
       if(res.data.length === 0){
         setHasmore(false)
       }
-      setProducts([...products,...res.data]);
+      else{
+        setHasmore(true)
+        
+      }
+      setProducts([...res.data]);
     } catch (e) {
       console.log(e);
     }
     setIsLoading(false);
   };
 
-  useEffect(()=>{
-    if(page>1 && hasmore){
-      searchProducts()
-    }
-  },[page])
+  // useEffect(()=>{
+  //   if(page>1 && hasmore){
+  //     searchProducts()
+  //   }
+  // },[page])
 
   return (
     <motion.div
@@ -159,12 +167,12 @@ export default function Explore() {
           ))
         ) : (
           <div className="flex-col">
-            <img height={80} width={80} src={emptyBox} />
+            <img height={80} width={80} src={emptyBox} alt=""/>
             No Products
           </div>
         )}
 
-        {hasmore && <button className="blue" onClick={()=>setPage(page+1)}>Load more</button>}
+        {/* {hasmore && <button className="blue" onClick={()=>setPage(page+1)}>Load more</button>} */}
       </div>
     </motion.div>
   );

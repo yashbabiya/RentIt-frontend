@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ChatHistory from './ChatHistory'
 
 export default function ChatPopup() {
 
@@ -33,17 +34,65 @@ export default function ChatPopup() {
 
         },
     ]
+
+    const [usersChat,setUsersChat] = useState() // set the user that is clicked
+
+    const userDetails = {
+        avatar:"https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg",
+        username:"yash",
+        chats:[ // Earliest message first
+            {
+                sender:"yash",
+                message:"Your welcome"
+            },
+            {
+                sender:"me",
+                message:"Thank you so much"
+            },
+            {
+                sender:"yash",
+                message:"sure"
+            },
+            {
+                sender:"me",
+                message:"I want your drill for 2 months"
+            },
+            {
+                sender:"yash",
+                message:"I am Fine"
+            },
+            {
+                sender:"me",
+                message:"How are you ? "
+            },
+            {
+                sender:"yash",
+                message:"Hii"
+            },
+            {
+                sender:"me",
+                message:"Hey"
+            },
+        ]
+    }
   return (
     <div className='chatpopup green'>
-
-        <div className='chatUserList'>
+        
         {
-            users.map((user)=><div className='userCard'>
-                <img src={user.image}/>
-                {user.username}
-            </div>)
+            usersChat? <>
+                <ChatHistory user={usersChat} goBack={()=>setUsersChat(false)}/>
+            </>:
+             <div className='chatUserList'>
+                 <h2>Chats</h2>
+             {
+                 users.map((user)=><div style={{cursor:"pointer"}} className='userCard' onClick={()=>setUsersChat(userDetails)}>
+                     <img src={user.image} alt=""/>
+                     {user.username}
+                 </div>)
+             }
+             </div>
         }
-        </div>
+       
     </div>
   )
 }
