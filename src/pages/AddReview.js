@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { API } from '../API';
 import Star from '../components/Star';
 import {motion} from 'framer-motion'
+import CancelIcon from '@mui/icons-material/Cancel';
 export default function AddReview(props) {
 
   const user = useSelector((state)=>state.auth)
@@ -51,8 +52,8 @@ export default function AddReview(props) {
   return (
     <motion.div className='page addreview flex-col'>
       <div className='cross' onClick={()=>props.closeModel(false)}>
-        <i className="im im-x-mark-circle"></i>
-      <h2>Add Review</h2>
+        <CancelIcon sx={{fontSize:30}} />
+          <h2>Add Review</h2>
         </div>
 
       <div className="form flex-col">

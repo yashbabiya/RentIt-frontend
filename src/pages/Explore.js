@@ -7,6 +7,7 @@ import ProductCard from "../components/ProductCard";
 import emptyBox from "../imgs/emptyBox.png";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 export default function Explore() {
   const options = [
     { value: "MachanicalTools", label: "Machanical Tools" },
@@ -23,6 +24,8 @@ export default function Explore() {
   const x1 = new URLSearchParams(search).get("keyword") || null;
   const [isLoading, setIsLoading] = useState(false);
   const [firstTime, setFirstTime] = useState(true);
+  const [page,setPage] = useState(1)
+  const [hasmore,setHasmore] = useState(true)
   const changeCategories = (val) => {
     setFirstTime(false);
     if (category.indexOf(val) != -1) {
@@ -63,17 +66,25 @@ export default function Explore() {
     try {
       const res = await axios.get(
         API +
-          `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=1&limit=10`
+          `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=${page}&limit=${2}`
       );
 
       // console.log(res.data);
-
-      setProducts(res.data);
+      if(res.data.length === 0){
+        setHasmore(false)
+      }
+      setProducts([...products,...res.data]);
     } catch (e) {
       console.log(e);
     }
     setIsLoading(false);
   };
+
+  useEffect(()=>{
+    if(page>1 && hasmore){
+      searchProducts()
+    }
+  },[page])
 
   return (
     <motion.div
@@ -110,7 +121,7 @@ export default function Explore() {
 
         <div className="categories">
           <div className={`pill blue filterpill`}>
-            <i className="im im-filter"></i>
+            <FilterAltIcon sx={{fontSize:30}} />
           </div>
           <button
             className={`pill yellow`}
@@ -152,6 +163,8 @@ export default function Explore() {
             No Products
           </div>
         )}
+
+        {hasmore && <button className="blue" onClick={()=>setPage(page+1)}>Load more</button>}
       </div>
     </motion.div>
   );

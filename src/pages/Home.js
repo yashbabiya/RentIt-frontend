@@ -2,6 +2,12 @@ import React from 'react'
 import Hero from '../imgs/hero.png'
 import {motion} from "framer-motion"
 import { Link } from 'react-router-dom'
+import PaymentsIcon from '@mui/icons-material/Payments';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import ChatIcon from '@mui/icons-material/Chat';
+import TourIcon from '@mui/icons-material/Tour';
 export default function Home() {
   return (
     <motion.div className='page home'
@@ -24,7 +30,7 @@ export default function Home() {
           <h2>Why Borrowing instead of purchasing ?</h2>
           <div className="why flex">
             <div className="card yellow">
-              <i className="im im-coin"></i>
+              <PaymentsIcon sx={{fontSize:120}}/>
 
               <b>No initial costs</b>
               <p>
@@ -33,7 +39,7 @@ export default function Home() {
             </div>
 
             <div className="card yellow">
-              <i className="im im-tools"></i>
+              <EngineeringIcon sx={{fontSize:120}}/>
 
               <b>No Maintenance costs</b>
               <p>
@@ -42,7 +48,7 @@ export default function Home() {
             </div>
 
             <div className="card yellow">
-              <i className="im im-flask"></i>
+              <PrecisionManufacturingIcon sx={{fontSize:120}}/>
 
               <b>For Trial purpose</b>
               <p>
@@ -59,7 +65,7 @@ export default function Home() {
 
 
           <div className="card green">
-              <i className="im im-magnifier"></i>
+              <TravelExploreIcon sx={{fontSize:120}}/>
 
               <b>Find the product you need</b>
               <p>
@@ -69,7 +75,7 @@ export default function Home() {
             </div>
 
             <div className="card green">
-              <i className="im im-speech-bubble"></i>
+              <ChatIcon sx={{fontSize:120}}/>
 
               <b>Chat with renter</b>
               <p>
@@ -78,7 +84,7 @@ export default function Home() {
             </div>
 
             <div className="card green">
-              <i className="im im-cube"></i>
+              <TourIcon sx={{fontSize:120}}/>
 
               <b>Use it for your need</b>
               <p>

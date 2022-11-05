@@ -11,4 +11,51 @@
             padding: .5em 1em;
             cursor: pointer;
     }
+    table{
+        width: 100%;
+        border-style: dashed;
+        .productimg{
+            width: 100%;
+            height: 5em;
+            object-fit: cover;
+        } 
+        th{
+            border-style: dashed;
+        }
+        td{
+            border-style: dashed;
+            text-align: center;
+        }
+    }
+    
+        
+        .ownerInfo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            img{
+                width: 2em;
+            height: 2em;
+            object-fit: cover;
+            border-radius: 50%;
+            }
+        }
+        already
+        .contract{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .actions{
+            display: flex;
+            gap: 1em;
+            button{
+                padding: 1em 1.2em;
+                
+            }
+        }
+        
+    
 }

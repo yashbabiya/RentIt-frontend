@@ -313,11 +313,11 @@
 }
 .home h2 {
   text-align: center;
-  font-size: 3em;
-  margin: 2em 0;
+  font-size: 2em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 .home .why, .home .how {
-  margin-top: 5em;
   flex-wrap: wrap;
 }
 .home .card {
@@ -476,10 +476,10 @@
 .login .passwordFeild {
   position: relative;
 }
-.login .passwordFeild i {
+.login .passwordFeild .i {
   position: absolute;
-  right: 5%;
-  bottom: 10%;
+  right: 3%;
+  bottom: 15%;
   cursor: pointer;
 }
 .login .left .btns {
@@ -537,14 +537,11 @@
   width: 100%;
   gap: 1em;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .explore .categories .pill {
   padding: 0.2em 1em;
   border-radius: 1em;
-}
-.explore .categories .filterpill i {
-  transform: translateY(5px);
 }
 .explore .categories .categoryListItem {
   display: flex;
@@ -555,7 +552,6 @@
 .explore .top {
   width: 100%;
   margin-bottom: 2em;
-  margin-top: -2em;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -621,7 +617,6 @@
   font-size: 5rem;
   text-align: center;
   text-transform: capitalize;
-  margin-bottom: 2em;
 }
 .productpage .rating {
   display: flex;
@@ -729,6 +724,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.productpage .chooseDate {
+  background-color: white;
+  padding: 2em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+.productpage .chooseDate svg {
+  width: 2em;
 }
 .productpage .ownerdetails {
   margin-bottom: 3em;
@@ -1170,6 +1178,49 @@
   padding: 0.5em 1em;
   cursor: pointer;
 }
+.requestPage table {
+  width: 100%;
+  border-style: dashed;
+}
+.requestPage table .productimg {
+  width: 100%;
+  height: 5em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.requestPage table th {
+  border-style: dashed;
+}
+.requestPage table td {
+  border-style: dashed;
+  text-align: center;
+}
+.requestPage .ownerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.requestPage .ownerInfo img {
+  width: 2em;
+  height: 2em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.requestPage already .contract {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.requestPage .actions {
+  display: flex;
+  gap: 1em;
+}
+.requestPage .actions button {
+  padding: 1em 1.2em;
+}
 
 html {
   font-size: 80%;
@@ -1180,6 +1231,7 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  outline: blue 1px solid;
 }
 
 .logo {

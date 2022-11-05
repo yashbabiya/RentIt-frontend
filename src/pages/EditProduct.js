@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { API } from "../API";
 import {motion} from 'framer-motion'
 import axios from "axios";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 
 export default function EditProduct() {
   const [img, setImg] = useState();
@@ -141,7 +143,8 @@ export default function EditProduct() {
               )}
 
               <label for="avatarimg" className="blue">
-                <i className="im im-cloud-upload"></i>
+              <CloudUploadIcon sx={{fontSize:30 }}/>
+
               </label>
               <input
                 id="avatarimg"

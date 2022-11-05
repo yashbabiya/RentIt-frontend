@@ -24,7 +24,7 @@
     font-size: 5rem;
     text-align: center;
     text-transform: capitalize;
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
   }
 
   .rating{
@@ -146,6 +146,19 @@
     }
   }
 
+  .chooseDate{
+    background-color: white;
+    padding: 2em;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column  ;
+    gap: 1em;
+    svg{
+      width: 2em;
+    }
+  }
   .ownerdetails{
     margin-bottom: 3em;
     display: flex;

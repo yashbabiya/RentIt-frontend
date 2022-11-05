@@ -5,7 +5,7 @@ import LoginGIF from "../imgs/login.gif";
 import axios from "axios";
 import { API } from '../API';
 import { useDispatch } from "react-redux";
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import {motion} from 'framer-motion';
 export default function Login() {
 
@@ -60,7 +60,7 @@ export default function Login() {
             <div className="passwordFeild">
               <p>Password : </p>
               <input type={showPassword ? "text" :"password"} value={password} onChange={(e)=>setPassword(e.target.value)}  />
-              <i className="im im-eye" onClick={()=>setShowPassword(!showPassword)}></i>
+              <VisibilityIcon  className="i" onClick={()=>setShowPassword(!showPassword)}/>
             </div>
             
             <Link to="/sendemail" className="fgtp">Forgot password</Link>

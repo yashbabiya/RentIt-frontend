@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import ChatPopup from './ChatPopup';
+import ChatIcon from '@mui/icons-material/Chat';
 
 export default function Chat() {
 
@@ -11,7 +12,7 @@ export default function Chat() {
 
     {modelShow && <ChatPopup />} 
     <button className="chatBubble" onClick={()=>setModeShow(!modelShow)}>
-        <i className="im im-speech-bubble"></i>
+        <ChatIcon sx={{ fontSize:30}}/>
     </button>
     </div>
   )

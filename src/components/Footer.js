@@ -2,7 +2,9 @@ import React from "react";
 import Logo from "./Logo";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import MailIcon from '@mui/icons-material/Mail';
 export default function Footer() {
   const user = useSelector((state) => state.auth);
 
@@ -23,9 +25,11 @@ export default function Footer() {
       <div className="end ">
 
 
-        <i className="im im-twitter"></i>
-        <i className="im im-instagram"></i>
-        <i className="im im-mail"></i>
+        
+        <TwitterIcon sx={{fontSize:30}}/>
+        <InstagramIcon sx={{fontSize:30}} />
+        <MailIcon  sx={{fontSize:30}}/>
+        
       </div>
 
       </div>

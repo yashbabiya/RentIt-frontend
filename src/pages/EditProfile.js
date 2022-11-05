@@ -8,6 +8,8 @@ import axios from "axios";
 import firebaseUpload from '../helpers/firbaseUpload';
 import {motion} from 'framer-motion'
 import logout from "../helpers/logout";
+import VerifiedIcon from '@mui/icons-material/Verified';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export default function EditProfile() {
   const [img, setImg] = useState();
@@ -136,7 +138,8 @@ export default function EditProfile() {
             )}
 
             <label for="avatarimg" className="blue">
-              <i className="im im-cloud-upload"></i>
+              <CloudUploadIcon sx={{fontSize:30 }}/>
+
             </label>
             <input id="avatarimg" type="file" onChange={(e) => handleFile(e)} />
           </div>
@@ -151,7 +154,10 @@ export default function EditProfile() {
             <div className="title">
               <div className="p flex">Email :
                 <div className="isVerified " title="Verify your email address">
-                 {user.emailverified ? <i className="im im-check-mark-circle verified"></i> :  <button className={emailSent ? `green notverified`: `yellow notverified`} onClick={verifyEmail}> <i className="im im-check-mark-circle"></i>{emailSent ? "Verification Email Sent": "Click to Verify"}</button> }
+                 {
+                  user.emailverified  ? 
+                 <VerifiedIcon sx={{fontSize:20}} style={{ color:"#05396B"}}/>
+                 :  <button className={emailSent ? `green notverified`: `yellow notverified`} onClick={verifyEmail}> <VerifiedIcon sx={{fontSize:20}} style={emailSent ? { color:"#53C249"} :{color:"#C28949"}}/>{emailSent ? "Verification Email Sent": "Click to Verify"}</button> }
                 </div>
                  
               </div>

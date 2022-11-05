@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../API";
 import axios from "axios";
 import {motion} from 'framer-motion'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export default function AddProduct() {
   const [img, setImg] = useState();
@@ -114,7 +115,7 @@ export default function AddProduct() {
             )}
 
             <label for="avatarimg" className="blue">
-              <i className="im im-cloud-upload"></i>
+              <CloudUploadIcon sx={{fontSize:30 }}/>
             </label>
             <input id="avatarimg" type="file" onChange={(e) => handleFile(e)} />
           </div>

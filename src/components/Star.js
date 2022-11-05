@@ -1,5 +1,6 @@
 import React from 'react'
-
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 export default function Star({count,setCount}) {
 
 
@@ -9,13 +10,15 @@ export default function Star({count,setCount}) {
             [1,2,3,4,5].map(i=>(
             (i<=count)?
 
-            <i className='im im-star'  onClick={()=>{
+            <StarIcon  sx={{fontSize:30}} onClick={()=>{
                 if(setCount)
                 setCount(i)
-            }}></i>
-            :<i className='im im-star-o' onClick={()=>{
-                if(setCount)
-                setCount(i)}}></i> )
+            }} />
+            :
+            <StarBorderIcon  sx={{fontSize:30}} onClick={()=>{
+              if(setCount)
+              setCount(i)}} />
+            )
             
             )
         }

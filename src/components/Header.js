@@ -3,6 +3,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import HelpIcon from '@mui/icons-material/Help';
+import ForumIcon from '@mui/icons-material/Forum';
+import SearchIcon from '@mui/icons-material/Search';
 import Logo from "./Logo";
 
 export default function Header() {
@@ -34,7 +39,7 @@ export default function Header() {
 
           <div className="mid">
             <div className="search">
-              <i className="im im-magnifier"></i>
+              <SearchIcon sx={{fontSize:30 }}  color="action" />
               <input
                 type="text"
                 placeholder="Search ..."
@@ -55,48 +60,32 @@ export default function Header() {
           {/* <Link to="/explore">Explore</Link> */}
 
           <div className="actions">
-            <NavLink
-              activeStyle={{ color: "black", background: "red" }}
-              isActive={(match, location) => {
-                if (!match) {
-                  return false;
-                }
-
-                // only consider an event active if its event id is an odd number
-                const eventID = parseInt(match.params.eventID);
-                return !isNaN(eventID) && eventID % 2 === 1;
-              }}
+            <Link
+              
               to="/mytools"
             >
              
 
-              <i className="im im-cube"></i>
+              <Inventory2Icon sx={{ fontSize: 30 }} />
               {/* My Tools */}
-            </NavLink>
+            </Link>
 
            
             <Link to="/addProduct" className="">
-              <i className="im im-plus-circle"></i>
+              <AddCircleIcon sx={{ fontSize: 30 }}  />
               {/* Add Product */}{" "}
             </Link>
 
             <Link to="/queries">
               {" "}
-              <i
-                className="im im-question
-
-"
-              ></i>
+              <HelpIcon sx={{ fontSize: 30 }}/>
               {/* Queries */}{" "}
             </Link>
 
             <Link to="/requests">
               {" "}
-              <i
-                className="im im-newsletter
-
-"
-              ></i>
+              <ForumIcon  sx={{ fontSize: 30 }}/>
+              
               {/* Request */}{" "}
             </Link>
 
@@ -112,7 +101,8 @@ export default function Header() {
           </Link>
           <div className="mid">
             <div className="search">
-              <i className="im im-magnifier"></i>
+            <SearchIcon sx={{fontSize:30 }}  color="action" />
+
 
               <input
                 type="text"
@@ -129,7 +119,6 @@ export default function Header() {
             </div>
           </div>
           <Link to="/login" className="blue">
-            {/* <i className="im im-user-circle"></i> */}
             Login
           </Link>
         </>

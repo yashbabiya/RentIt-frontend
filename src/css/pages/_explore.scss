@@ -16,13 +16,10 @@
     }
     
     .filterpill{
-     
-i{
-  transform: translateY(5px);
-}      
+      
     }
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     .categoryListItem{
       display: flex;
       justify-content: flex-start;
@@ -32,9 +29,9 @@ i{
   }
   .top {
     width: 100%; 
-    margin-bottom: 2em;
+    margin-bottom: 2em;  
     // max-width: 200px;
-    margin-top: -2em;
+    // margin-top: -2em;
     height: max-content;
     // position: sticky;
     // top: 0;
