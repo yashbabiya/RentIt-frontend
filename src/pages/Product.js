@@ -20,8 +20,10 @@ export default function Product() {
   const [isLoading, setIsLoading] = useState(false);
   const isAssignedToCurrentUser = true;
   const [modelShow, setModelShow] = useState(false);
-  const [chooseDate,setChooseDate] = useState(false);
-  const [reqDate,setReqDate] = useState();
+  const [chooseDate, setChooseDate] = useState(false);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [address, setAddress] = useState();
   const fetchProduct = async () => {
     // try{
 
@@ -80,32 +82,34 @@ export default function Product() {
     setModelShow(true);
   };
 
-  const sendRequest = async() => {
+  const sendRequest = async () => {
 
-    if(!reqDate){
-      alert("Please select the till date")
+    if (!startDate) {
+      alert("Please select the start date")
     }
-    else{
+    else {
 
       const reqBody = {
-        tillDate:reqDate,
+        startdate: startDate,
+        tilldate: endDate,
+        address: address,
         prodId: product._id,
-        prodName:product.title,
-        prodImg:product.image,
-        ownerId:product.renterid,
-        ownerAvatar:product.renter.avatar,
-        ownerName:product.renter.username
+        prodName: product.title,
+        prodImg: product.image,
+        ownerId: product.renterid,
+        ownerAvatar: product.renter.avatar,
+        ownerName: product.renter.username
       }
 
-      try{
+      try {
 
-        const res = await axios.post(API+'/request/request',reqBody,{withCredentials:true})
+        const res = await axios.post(API + '/request/request', reqBody, { withCredentials: true })
 
-        if(res.status === 200){
+        if (res.status === 200) {
           alert("request sent")
         }
       }
-      catch(e){
+      catch (e) {
         alert("Error Occured")
       }
     }
@@ -136,10 +140,22 @@ export default function Product() {
         {chooseDate && (
           <div className="popup">
             <div className="chooseDate">
-            <svg onClick={()=>setChooseDate(false)} clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero"/></svg>
-                <h2>Choose Date</h2>
-                <input value={reqDate} onChange={(e)=>setReqDate(e.target.value)} type="date" name="" id="" />
-                <button className="blue" onClick={()=>sendRequest()}>Send</button>
+              <svg onClick={() => setChooseDate(false)} clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" /></svg>
+              <h2>Enter Your Details</h2>
+              <div className="detailBox">
+                <div className="subDetail">
+                  <label htmlFor="startdate">Start Date</label>
+                  <input id="startdate" value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" name="startdate" />
+                </div>
+                <div className="subDetail">
+                  <label htmlFor="enddate">End Date</label>
+                  <input id="enddate" value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" name="enddate" />
+                </div>
+              </div>
+              <div className="detailBox">
+                <textarea name="address" value={address} onChange={(e) => setAddress(e.target.value)} id="address" cols="30" rows="10" placeholder="Enter your Address"></textarea>
+              </div>
+              <button className="blue" onClick={() => sendRequest()}>Send</button>
             </div>
           </div>
         )}
@@ -205,7 +221,7 @@ export default function Product() {
                 </button>
               )}
 
-              { 
+              {
                 product.renterid !== user._id &&
                 product.borrowerid !== user._id && (
                   <button className="yellow" onClick={() => setChooseDate(true)}>
@@ -235,7 +251,7 @@ export default function Product() {
               </p>
               <p>
                 {product.renter.mobile}
-                
+
               </p>
             </div>
           </div>

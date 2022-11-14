@@ -17,68 +17,70 @@ export default function ProductRequest() {
       withCredentials: true,
     });
 
+    console.log(res.data);
+
     setSented(res.data.sented);
     setReceived(res.data.received);
   };
 
-  const deleteRequest = async(id)=>{
+  const deleteRequest = async (id) => {
 
-    if(window.confirm("Are you sure ?!!")){
+    if (window.confirm("Are you sure ?!!")) {
 
-      try{
-        const res = await axios.delete(API+`/request/delete?reqId=${id}`,{withCredentials:true})
+      try {
+        const res = await axios.delete(API + `/request/delete?reqId=${id}`, { withCredentials: true })
 
-        if(res.status < 400){
+        if (res.status < 400) {
           alert("Request successfully deleted")
         }
 
 
       }
-      catch(e){
+      catch (e) {
         alert("Error occured")
       }
     }
   }
 
-  const acceptRequest = async(productid,borrowerid,revokedate,reqId)=>{
+  const acceptRequest = async (productid, borrowerid, revokedate, reqId) => {
 
     // if(window.confirm("Are you sure ?!!")){
 
-      try{
-        const reqBody = {
-          productid,
-          borrowerid,
-          revokedate,
-          reqId
-        }
-        const res = await axios.post(API+`/product/assign`,reqBody,{withCredentials:true})
-
-        if(res.status < 400){
-          alert("Request successfully accepted")
-        }
-
-        
+    try {
+      const reqBody = {
+        productid,
+        borrowerid,
+        revokedate,
+        reqId
       }
-      catch(e){
-        alert("Error occured")
+      const res = await axios.post(API + `/product/assign`, reqBody, { withCredentials: true })
+
+      if (res.status < 400) {
+        alert("Request successfully accepted")
       }
+
+
+    }
+    catch (e) {
+      alert("Error occured")
+    }
     // }
   }
 
-  const rejectRequest = async(id)=>{
+  const rejectRequest = async (id) => {
 
-    if(window.confirm("Are you sure ?!!")){
+    if (window.confirm("Are you sure ?!!")) {
 
-      try{
-        const res = await axios.get(API+`/request/decline?reqId=${id}`,{withCredentials:true})
+      try {
+        const res = await axios.get(API + `/request/decline?reqId=${id}`, { withCredentials: true })
 
-        if(res.status < 400){
+        if (res.status < 400) {
           alert("Request successfully rejected")
         }
 
-        
+
       }
-      catch(e){
+      catch (e) {
         alert("Error occured")
       }
     }
@@ -125,7 +127,9 @@ export default function ProductRequest() {
                     <th>Image</th>
                     <th>Name</th>
                     <th>owner</th>
+                    <th>Startdate</th>
                     <th>Till</th>
+                    <th>Address</th>
                     <th>Remove</th>
                   </tr>
 
@@ -147,14 +151,23 @@ export default function ProductRequest() {
                           <p>{req.owner.username}</p>
                         </div>
                       </td>
-
                       <td>
                         <div className="">
-                          <p>{changeDateFormat(req.tillDate)}</p>
+                          <p>{changeDateFormat(req.startdate)}</p>
                         </div>
                       </td>
                       <td>
-                        <button className="red" onClick={()=>deleteRequest(req._id)}>Delete</button>
+                        <div className="">
+                          <p>{changeDateFormat(req.tilldate)}</p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="">
+                          <p>{req.address}</p>
+                        </div>
+                      </td>
+                      <td>
+                        <button className="red" onClick={() => deleteRequest(req._id)}>Delete</button>
                       </td>
                     </tr>
                   ))}
@@ -168,50 +181,62 @@ export default function ProductRequest() {
             )
           ) : received.length ? (
             <>
-            <table border={1}>
-                  <tr className="titleFortable">
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>User</th>
-                    <th>Till</th>
-                    <th>Accept</th>
-                    <th>Decline</th>
+              <table border={1}>
+                <tr className="titleFortable">
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>User</th>
+                  <th>Start</th>
+                  <th>Till</th>
+                  <th>Address</th>
+                  <th>Accept</th>
+                  <th>Decline</th>
 
+                </tr>
+
+                {received.map((req, index) => (
+                  <tr key={req._id} className="">
+                    <td>
+                      <img
+                        src={req.product.img}
+                        className="productimg"
+                        alt=""
+                      />
+                    </td>
+                    <td>
+                      <b>{req.product.name}</b>
+                    </td>
+                    <td>
+                      <div className="ownerInfo">
+                        <img src={req.avatar} alt="" />
+                        <p>{req.username}</p>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div className="">
+                        <p>{changeDateFormat(req.startdate)}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="">
+                        <p>{changeDateFormat(req.tilldate)}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="">
+                        <p>{req.address}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <button className="yellow" onClick={() => acceptRequest(req.product._id, req.userid, req.tillDate, req._id)}>Accept</button>
+                    </td>
+                    <td>
+                      <button className="red" onClick={() => rejectRequest(req._id)}>Decline</button>
+                    </td>
                   </tr>
-
-              {received.map((req, index) => (
-                <tr key={req._id} className="">
-                <td>
-                  <img
-                    src={req.product.img}
-                    className="productimg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <b>{req.product.name}</b>
-                </td>
-                <td>
-                  <div className="ownerInfo">
-                    <img src={req.avatar} alt="" />
-                    <p>{req.username}</p>
-                  </div>
-                </td>
-
-                <td>
-                  <div className="">
-                    <p>{changeDateFormat(req.tillDate)}</p>
-                  </div>
-                </td>
-                <td>
-                  <button className="yellow" onClick={()=>acceptRequest(req.product._id,req.userid,req.tillDate,req._id)}>Accept</button>
-                </td>
-                <td>
-                  <button className="red" onClick={()=>rejectRequest(req._id)}>Decline</button>
-                </td>
-              </tr>
                 ))}
-            </table>
+              </table>
             </>
           ) : (
             <div className="flex-col">

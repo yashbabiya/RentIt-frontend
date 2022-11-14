@@ -33,13 +33,13 @@ export default function Header() {
     <div className="header ">
       {user.isLoggedIn ? (
         <nav>
-          <NavLink to="/">
+          <div>
             <Logo />
-          </NavLink>
+          </div>
 
           <div className="mid">
             <div className="search">
-              <SearchIcon sx={{fontSize:30 }}  color="action" />
+              <SearchIcon sx={{ fontSize: 30 }} color="action" />
               <input
                 type="text"
                 placeholder="Search ..."
@@ -61,31 +61,31 @@ export default function Header() {
 
           <div className="actions">
             <Link
-              
+
               to="/mytools"
             >
-             
+
 
               <Inventory2Icon sx={{ fontSize: 30 }} />
               {/* My Tools */}
             </Link>
 
-           
+
             <Link to="/addProduct" className="">
-              <AddCircleIcon sx={{ fontSize: 30 }}  />
+              <AddCircleIcon sx={{ fontSize: 30 }} />
               {/* Add Product */}{" "}
             </Link>
 
             <Link to="/queries">
               {" "}
-              <HelpIcon sx={{ fontSize: 30 }}/>
+              <HelpIcon sx={{ fontSize: 30 }} />
               {/* Queries */}{" "}
             </Link>
 
             <Link to="/requests">
               {" "}
-              <ForumIcon  sx={{ fontSize: 30 }}/>
-              
+              <ForumIcon sx={{ fontSize: 30 }} />
+
               {/* Request */}{" "}
             </Link>
 
@@ -101,7 +101,7 @@ export default function Header() {
           </Link>
           <div className="mid">
             <div className="search loginSearch">
-            <SearchIcon sx={{fontSize:30 }}  color="action" />
+              <SearchIcon sx={{ fontSize: 30 }} color="action" />
 
 
               <input
