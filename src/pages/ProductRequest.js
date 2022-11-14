@@ -229,7 +229,7 @@ export default function ProductRequest() {
                       </div>
                     </td>
                     <td>
-                      <button className="yellow" onClick={() => acceptRequest(req.product._id, req.userid, req.tillDate, req._id)}>Accept</button>
+                      <button className="yellow" onClick={() => acceptRequest(req.product._id, req.userid, req.tilldate, req._id)}>Accept</button>
                     </td>
                     <td>
                       <button className="red" onClick={() => rejectRequest(req._id)}>Decline</button>

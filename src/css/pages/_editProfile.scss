@@ -1,64 +1,59 @@
 .editProfile {
-    h2{
-        text-align: left;
-    }
-    .bottom{
-      display: flex;
+  h2 {
+    text-align: left;
+  }
+  .bottom {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 2em;
-    }
+  }
   .avatar {
     background-color: rgb(30, 30, 30);
-    min-height: 400px;
+    max-height: 400px;
     max-width: 400px;
     border-radius: 50% !important;
     // margin-bottom: -10px;
   }
 
-  .p{
+  .p {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 1em;
-  
   }
 
-  .isVerified{
+  .isVerified {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .8em;
+    font-size: 0.8em;
 
-    i{
+    i {
       // transform: translateY(3px);
-    font-size: 1em;
-
+      font-size: 1em;
     }
   }
-  
 
-  .title{
+  .title {
     margin: 1em 0;
   }
-  .verified{
+  .verified {
     color: $dblue;
-
   }
-  .notverified{
+  .notverified {
     background: none;
-    padding:.2em;
+    padding: 0.2em;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .4em;
-
+    gap: 0.4em;
   }
 
-  .form{
+  .form {
     margin: 2em 0;
   }
-  .bottom{
+  .bottom {
     margin-top: 2em;
   }
 
@@ -97,10 +92,9 @@
   }
 }
 
-
-@media screen and (max-width : 547px){
-  .editProfile{
-    .bottom{
+@media screen and (max-width: 547px) {
+  .editProfile {
+    .bottom {
       flex-direction: column;
     }
   }
