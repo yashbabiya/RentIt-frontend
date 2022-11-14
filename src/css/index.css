@@ -205,6 +205,8 @@
   border-radius: 1em;
   padding: 1em;
   width: 100%;
+  height: 500px;
+  overflow-y: auto;
 }
 .chatpopup .userCard {
   display: flex;
@@ -240,6 +242,9 @@
   font-size: 2rem;
 }
 
+.chatHistory {
+  position: relative;
+}
 .chatHistory header {
   display: flex;
   justify-content: flex-start;
@@ -254,14 +259,22 @@
   border-radius: 50%;
 }
 .chatHistory .chats {
-  height: 250px;
-  margin: 1em 0 !important;
+  height: 345px;
+  margin: 0.6em 0 !important;
   overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;
+  background-color: #edffea;
+  border-radius: 0.4em;
+  padding: 0 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.chatHistory .chats::-webkit-scrollbar {
+  display: none;
 }
 .chatHistory .chats .msgs {
-  margin: 1em 0;
+  margin: 0.4em 0;
 }
 .chatHistory .chats .leftAlign {
   width: 100%;
@@ -272,8 +285,12 @@
 .chatHistory .chats .leftAlign p {
   background-color: #C28949;
   color: #F3E0D2;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.8em;
   border-radius: 1em 1em 1em 0em;
+  word-wrap: break-word;
+  max-width: 70%;
+  font-size: 18px;
+  overflow: hidden;
 }
 .chatHistory .chats .rightAlign {
   width: 100%;
@@ -284,11 +301,28 @@
 .chatHistory .chats .rightAlign p {
   background-color: #53C249;
   color: #D5F3D2;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.8em;
   border-radius: 1em 1em 0em 1em;
+  max-width: 70%;
+  font-size: 18px;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 .chatHistory .input {
   display: flex;
+  border: none;
+  gap: 5px;
+}
+.chatHistory .input input {
+  padding: 0.4em 0.5em;
+  border: none;
+}
+.chatHistory .input button {
+  border: none;
+  padding: 0.4em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .addproduct .form {
@@ -847,7 +881,8 @@
   flex-direction: column;
   gap: 1em;
 }
-.productpage .top .left .inRight h2, .productpage .top .left .inRight p,
+.productpage .top .left .inRight h2,
+.productpage .top .left .inRight p,
 .productpage .top .right .inRight h2,
 .productpage .top .right .inRight p {
   text-align: left;
@@ -893,10 +928,12 @@
   align-items: center;
   gap: 2em;
 }
-.productpage .bottom .ownerdetails, .productpage .bottom .reviews {
+.productpage .bottom .ownerdetails,
+.productpage .bottom .reviews {
   width: 100%;
 }
-.productpage .bottom .ownerdetails .reviewlists, .productpage .bottom .reviews .reviewlists {
+.productpage .bottom .ownerdetails .reviewlists,
+.productpage .bottom .reviews .reviewlists {
   height: 400px;
   overflow-y: scroll;
   display: flex;
@@ -906,12 +943,14 @@
   gap: 1em;
   padding: 1em;
 }
-.productpage .bottom .ownerdetails .reviewlists .reviewCard, .productpage .bottom .reviews .reviewlists .reviewCard {
+.productpage .bottom .ownerdetails .reviewlists .reviewCard,
+.productpage .bottom .reviews .reviewlists .reviewCard {
   width: 100%;
   padding: 1em;
   border-radius: 1em;
 }
-.productpage .bottom .ownerdetails .reviewlists .reviewCard .bottom, .productpage .bottom .reviews .reviewlists .reviewCard .bottom {
+.productpage .bottom .ownerdetails .reviewlists .reviewCard .bottom,
+.productpage .bottom .reviews .reviewlists .reviewCard .bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -929,6 +968,25 @@
 .productpage .chooseDate svg {
   width: 2em;
 }
+.productpage .chooseDate .detailBox {
+  display: flex;
+  gap: 30px;
+  width: 600px;
+}
+.productpage .chooseDate .detailBox textarea {
+  max-width: 100% !important;
+  width: 100% !important;
+  resize: none;
+  height: 150px;
+}
+.productpage .chooseDate .detailBox .subDetail {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.productpage .chooseDate .detailBox .subDetail label {
+  font-size: 16px;
+}
 .productpage .ownerdetails {
   margin-bottom: 3em;
   display: flex;
@@ -941,7 +999,8 @@
   height: 200px;
   border-radius: 50%;
 }
-.productpage .ownerdetails h2, .productpage .ownerdetails p {
+.productpage .ownerdetails h2,
+.productpage .ownerdetails p {
   display: flex;
   justify-content: center;
   align-items: center;

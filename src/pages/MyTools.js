@@ -122,7 +122,7 @@ export default function MyTools() {
             rented.length ? (
               <>
                 {rented.map((prd, index) => (
-                  <div className="cards ">
+                  <div key={index} className="cards ">
                     <div className="product">
                       <img
                         src={prd.image}
@@ -145,12 +145,12 @@ export default function MyTools() {
                       <>
                         <div className="contract">
                           <div className="borrowerInfo">
-                            <img src={prd.borrower.avatar} alt="" />
-                            <b>{prd.borrower.username}</b>
+                            <img src={prd.borrower?.avatar} alt="" />
+                            <b>{prd.borrower?.username}</b>
                           </div>
 
-                          <p>From : {changeDateFormat(prd.agreement.from)}</p>
-                          <p>to : {changeDateFormat(prd.agreement.to)}</p>
+                          <p>From : {changeDateFormat(prd.agreement?.from)}</p>
+                          <p>to : {changeDateFormat(prd.agreement?.to)}</p>
                         </div>
                         <button
                           className="red"
@@ -212,7 +212,7 @@ export default function MyTools() {
               {borrowed.map((prd, index) => (
                 <>
                   {/* <ProductCard index={index} {...prd} /> */}
-                  <div className="cards ">
+                  <div key={index} className="cards ">
                     <div className="product">
                       <img
                         src={prd.image}
@@ -231,20 +231,20 @@ export default function MyTools() {
                       {prd.timeperiod}
                     </p>
 
-                     
-                      <>
-                        <div className="contract">
-                          <div className="borrowerInfo">
-                            {/* <img src={prd.borrower.avatar} alt="" />
-                            <b>{prd.borrower.username}</b> */}
-                          </div>
 
-                          {/* <p>From : {changeDateFormat(prd.agreement)}</p>
-                          <p>to : {changeDateFormat(prd.agreement.to)}</p> */}
+                    <>
+                      <div className="contract">
+                        <div className="borrowerInfo">
+                          {/* <img src={prd.borrower.avatar} alt="" />
+                            <b>{prd.borrower.username}</b> */}
                         </div>
-                        
-                      </>
-                    
+
+                        {/* <p>From : {changeDateFormat(prd.agreement)}</p>
+                          <p>to : {changeDateFormat(prd.agreement.to)}</p> */}
+                      </div>
+
+                    </>
+
 
                     {/* <ProductCard index={index} {...prd} /> */}
                   </div>

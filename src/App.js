@@ -26,7 +26,7 @@ import Layout from "./Layout";
 import ProductRequest from "./pages/ProductRequest";
 
 function App() {
- 
+
   const queryClient = new QueryClient()
   const auth = useSelector((state) => state.auth);
   const location = useLocation();
@@ -35,65 +35,63 @@ function App() {
     <div className="App">
 
 
-<AnimatePresence exitBeforeEnter>
-<QueryClientProvider client={queryClient}>
+      <AnimatePresence exitBeforeEnter>
+        <QueryClientProvider client={queryClient}>
 
-      <Routes key={location.pathname} location={location}>
-
-      
-     
-
-        
-        {auth.isLoggedIn ? (
-          <>
-
-            <Route exact path='/' element={<Layout/>}>
-              <Route index element={<><Home /> </>} />
-              <Route exact path="explore" element={<><Explore /> </>} />
-              <Route exact path="product/:id" element={<><Product /> </>} />
-              <Route exact path="mytools" element={<><MyTools /> </>} />
-              <Route exact path="addProduct" element={<><AddProduct /> </>} />
-              <Route exact path="editProfile" element={<><EditProfile /> </>} />
-              <Route exact path="editProduct" element={<><EditProduct /> </>} />
-              <Route exact path="addreview" element={<><AddReview /> </>} />
-              <Route exact path="requests" element={<><ProductRequest /> </>} />
+          <Routes key={location.pathname} location={location}>
 
 
-              <Route exact path="queries" element={<><Queries /> </>} />
-              <Route exact path="assignproduct" element={<><AssignProduct /> </>} />
-              <Route exact path="enterOTP" element={<><OTP /></>} />
-            </Route>
-            
-            <Route exact path='/emailverificationpage/:token' element={<><VerifyEmail /></>} />
-
-            
-          </>
-        ) : (
-          <>
 
 
-              <Route exact path='/' element={<Layout/>}>
-              <Route index element={<><Home /> </>} />
-              <Route exact path="explore" element={<><Explore /> </>} />
-              <Route exact path="product/:id" element={<><Product /> </>} />
-              </Route>
+
+            {auth.isLoggedIn ? (
+              <>
+
+                <Route exact path='/' element={<Layout />}>
+                  <Route index element={<><Home /> </>} />
+                  <Route exact path="explore" element={<><Explore /> </>} />
+                  <Route exact path="product/:id" element={<><Product /> </>} />
+                  <Route exact path="mytools" element={<><MyTools /> </>} />
+                  <Route exact path="addProduct" element={<><AddProduct /> </>} />
+                  <Route exact path="editProfile" element={<><EditProfile /> </>} />
+                  <Route exact path="editProduct" element={<><EditProduct /> </>} />
+                  <Route exact path="addreview" element={<><AddReview /> </>} />
+                  <Route exact path="requests" element={<><ProductRequest /> </>} />
 
 
-            <Route exact path="/login" element={<><Login /></>} />
-            <Route exact path="/signup" element={<><Signup /></>} />
-            <Route exact path="/sendemail" element={<><SendEmail /></>} />
-            <Route exact path="/changepassword/:token" element={<><ChangePassword /></>} />
+                  <Route exact path="queries" element={<><Queries /> </>} />
+                  <Route exact path="assignproduct" element={<><AssignProduct /> </>} />
+                  <Route exact path="enterOTP" element={<><OTP /></>} />
+                </Route>
 
-          </>
-        )}
+                <Route exact path='/emailverificationpage/:token' element={<><VerifyEmail /></>} />
 
-        <Route path='*' element={<ErrorPage />}/>
-      </Routes>
-</QueryClientProvider>
+
+              </>
+            ) : (
+              <>
+
+
+                <Route exact path='/' element={<Layout />}>
+                  <Route index element={<><Home /> </>} />
+                  <Route exact path="explore" element={<><Explore /> </>} />
+                  <Route exact path="product/:id" element={<><Product /> </>} />
+                </Route>
+
+
+                <Route exact path="/login" element={<><Login /></>} />
+                <Route exact path="/signup" element={<><Signup /></>} />
+                <Route exact path="/sendemail" element={<><SendEmail /></>} />
+                <Route exact path="/changepassword/:token" element={<><ChangePassword /></>} />
+
+              </>
+            )}
+
+            <Route path='*' element={<ErrorPage />} />
+          </Routes>
+        </QueryClientProvider>
 
       </AnimatePresence>
-          
-      {auth.isLoggedIn && <Chat/>}
     </div>
   );
 }
