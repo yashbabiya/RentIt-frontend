@@ -11,9 +11,11 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 export default function Explore() {
   const options = [
     { value: "MachanicalTools", label: "Machanical Tools" },
-    { value: "Fashion", label: "Fashion" },
-    { value: "Vehical", label: "Vehicle" },
-    { value: "Imiation", label: "Imiation" },
+    { value: "WeddingDress", label: "Wedding Dress" },
+    { value: "Vehicle", label: "Vehicle" },
+    { value: "BridalSet", label: "Bridal Set" },
+    { value: "StudioEquipments", label: "Studio Equipments" },
+    { value: "Gadgets", label: "Electrical Gadgets" },
   ];
 
   const { search } = useLocation();
@@ -24,8 +26,8 @@ export default function Explore() {
   const x1 = new URLSearchParams(search).get("keyword") || null;
   const [isLoading, setIsLoading] = useState(false);
   const [firstTime, setFirstTime] = useState(true);
-  const [page,setPage] = useState(1)
-  const [hasmore,setHasmore] = useState(true)
+  const [page, setPage] = useState(1)
+  const [hasmore, setHasmore] = useState(true)
   const changeCategories = (val) => {
     setFirstTime(false);
     if (category.indexOf(val) != -1) {
@@ -40,8 +42,7 @@ export default function Explore() {
   }, [x1]);
 
   useEffect(() => {
-    if (keyword)
-    { 
+    if (keyword) {
       searchProducts();
     }
 
@@ -57,7 +58,7 @@ export default function Explore() {
       setProducts(res.data);
       setKeyWord("");
       setcategory([]);
-    } catch (e) {}
+    } catch (e) { }
     setIsLoading(false);
   };
 
@@ -70,16 +71,16 @@ export default function Explore() {
     try {
       const res = await axios.get(
         API +
-          `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=${page}&limit=${10}`
+        `/product/search?keyword=${queryKeyword}&category=${categoriesValue}&page=${page}&limit=${10}`
       );
 
       // console.log(res.data);
-      if(res.data.length === 0){
+      if (res.data.length === 0) {
         setHasmore(false)
       }
-      else{
+      else {
         setHasmore(true)
-        
+
       }
       setProducts([...res.data]);
     } catch (e) {
@@ -129,7 +130,7 @@ export default function Explore() {
 
         <div className="categories">
           <div className={`pill blue filterpill`}>
-            <FilterAltIcon sx={{fontSize:30}} />
+            <FilterAltIcon sx={{ fontSize: 30 }} />
           </div>
           <button
             className={`pill yellow`}
@@ -141,9 +142,8 @@ export default function Explore() {
           </button>
           {options.map((op) => (
             <button
-              className={`pill ${
-                category.indexOf(op.value) != -1 ? "blue" : "yellow"
-              }`}
+              className={`pill ${category.indexOf(op.value) != -1 ? "blue" : "yellow"
+                }`}
               onClick={() => {
                 changeCategories(op.value);
               }}
@@ -167,7 +167,7 @@ export default function Explore() {
           ))
         ) : (
           <div className="flex-col">
-            <img height={80} width={80} src={emptyBox} alt=""/>
+            <img height={80} width={80} src={emptyBox} alt="" />
             No Products
           </div>
         )}

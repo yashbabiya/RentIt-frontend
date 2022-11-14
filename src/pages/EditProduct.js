@@ -3,7 +3,7 @@ import Select from "react-select";
 import firebaseUpload from "../helpers/firbaseUpload";
 import { useLocation, useNavigate } from "react-router-dom";
 import { API } from "../API";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import axios from "axios";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
@@ -25,9 +25,11 @@ export default function EditProduct() {
 
   const options = [
     { value: "MachanicalTools", label: "Machanical Tools" },
-    { value: "Fashion", label: "Fashion" },
-    { value: "Vehical", label: "Vehical" },
-    { value: "Imiation", label: "Imiation" },
+    { value: "WeddingDress", label: "Wedding Dress" },
+    { value: "Vehicle", label: "Vehicle" },
+    { value: "BridalSet", label: "Bridal Set" },
+    { value: "StudioEquipments", label: "Studio Equipments" },
+    { value: "Gadgets", label: "Electrical Gadgets" },
   ];
 
   const navigate = useNavigate();
@@ -42,10 +44,10 @@ export default function EditProduct() {
 
 
 
-  const updateProduct = async(img=preview) =>{
+  const updateProduct = async (img = preview) => {
 
     const reqBody = {
-      _id:product._id,
+      _id: product._id,
       title: name,
       description,
       age: dop,
@@ -55,14 +57,14 @@ export default function EditProduct() {
       image: img,
       location: city,
     }
-    const res = await axios.put(API+`/product/${product._id}`,reqBody,{withCredentials:true}).catch((err)=>alert("error"))
+    const res = await axios.put(API + `/product/${product._id}`, reqBody, { withCredentials: true }).catch((err) => alert("error"))
 
-    if(res.status === 200){
+    if (res.status === 200) {
       navigate('/')
     }
 
   }
-  
+
 
 
 
@@ -83,21 +85,21 @@ export default function EditProduct() {
       timeduration &&
       dop
     ) {
-      
 
 
-    if(img){
 
-      firebaseUpload(img,product._id,(img)=>{
-        updateProduct(img.data)
-      })
+      if (img) {
+
+        firebaseUpload(img, product._id, (img) => {
+          updateProduct(img.data)
+        })
+      }
+
+      else {
+        updateProduct(preview)
+      }
+
     }
-
-    else{
-      updateProduct(preview)
-    }
-
-  }
   };
 
   useEffect(() => {
@@ -125,10 +127,10 @@ export default function EditProduct() {
   if (product)
     return (
       <motion.div className="addproduct page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{duration:.2}}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: .2 }}
       >
         <h2>Edit Product</h2>
 
@@ -143,7 +145,7 @@ export default function EditProduct() {
               )}
 
               <label for="avatarimg" className="blue">
-              <CloudUploadIcon sx={{fontSize:30 }}/>
+                <CloudUploadIcon sx={{ fontSize: 30 }} />
 
               </label>
               <input

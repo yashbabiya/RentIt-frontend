@@ -4,7 +4,7 @@ import firebaseUpload from "../helpers/firbaseUpload";
 import { useNavigate } from "react-router-dom";
 import { API } from "../API";
 import axios from "axios";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export default function AddProduct() {
@@ -17,14 +17,16 @@ export default function AddProduct() {
   const [timeduration, settimeduration] = useState("Per Day");
   const [dop, setdop] = useState();
   const [city, setCity] = useState();
-  const [isLoading,setIsLoading] = useState();
-  const [error,setError] = useState("");
+  const [isLoading, setIsLoading] = useState();
+  const [error, setError] = useState("");
 
   const options = [
     { value: "MachanicalTools", label: "Machanical Tools" },
-    { value: "Fashion", label: "Fashion" },
-    { value: "Vehical", label: "Vehical" },
-    { value: "Imiation", label: "Imiation" },
+    { value: "WeddingDress", label: "Wedding Dress" },
+    { value: "Vehicle", label: "Vehicle" },
+    { value: "BridalSet", label: "Bridal Set" },
+    { value: "StudioEquipments", label: "Studio Equipments" },
+    { value: "Gadgets", label: "Electrical Gadgets" },
   ];
 
   const navigate = useNavigate();
@@ -37,8 +39,8 @@ export default function AddProduct() {
     else setPreview(img);
   };
 
-  
-  
+
+
 
 
   const handleSubmit = async () => {
@@ -47,11 +49,11 @@ export default function AddProduct() {
     if (
       // true
       name && description && category && rent && timeduration && dop && img
-      ) {
+    ) {
 
 
-      
-      firebaseUpload(img, name,async(img_url)=>{
+
+      firebaseUpload(img, name, async (img_url) => {
 
         const reqBody = {
           title: name,
@@ -65,7 +67,7 @@ export default function AddProduct() {
         };
 
 
-        const res = await axios.post(API + "/product/create", reqBody, {withCredentials:true}).catch((err)=>{
+        const res = await axios.post(API + "/product/create", reqBody, { withCredentials: true }).catch((err) => {
           alert(err.response.data)
           setIsLoading(false)
         });
@@ -74,17 +76,17 @@ export default function AddProduct() {
           navigate("/explore");
         }
 
-      },()=>{
+      }, () => {
         alert("Image not uploaded")
       });
 
-      
 
-      
-        
-      
+
+
+
+
     }
-    else{
+    else {
       setError("Please fill all the details.")
     }
     setIsLoading(false)
@@ -97,13 +99,13 @@ export default function AddProduct() {
 
   return (
     <motion.div className="addproduct page"
-    initial={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{duration:.2}}
+      transition={{ duration: .2 }}
     >
       <h2>Add Product</h2>
-      <p className="red" style={{background:"none"}}>{error}</p>
+      <p className="red" style={{ background: "none" }}>{error}</p>
       <div className="form">
         <div className="left">
           <div className="avatarWrap">
@@ -115,7 +117,7 @@ export default function AddProduct() {
             )}
 
             <label for="avatarimg" className="blue">
-              <CloudUploadIcon sx={{fontSize:30 }}/>
+              <CloudUploadIcon sx={{ fontSize: 30 }} />
             </label>
             <input id="avatarimg" type="file" onChange={(e) => handleFile(e)} />
           </div>
@@ -194,7 +196,7 @@ export default function AddProduct() {
       </div>
       <div className="flex">
         <button className="blue" onClick={handleSubmit} disabled={isLoading}>
-          { isLoading ? "Loading ..." : "Add Product"}
+          {isLoading ? "Loading ..." : "Add Product"}
         </button>
       </div>
     </motion.div>
