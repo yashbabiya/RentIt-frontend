@@ -39,7 +39,10 @@ export default function ProductRequest() {
       catch (e) {
         alert("Error occured")
       }
+      window.location.reload()
     }
+
+
   }
 
   const acceptRequest = async (productid, borrowerid, revokedate, reqId) => {
@@ -65,6 +68,8 @@ export default function ProductRequest() {
       alert("Error occured")
     }
     // }
+    window.location.reload()
+
   }
 
   const rejectRequest = async (id) => {
@@ -82,8 +87,11 @@ export default function ProductRequest() {
       }
       catch (e) {
         alert("Error occured")
+        
       }
     }
+    window.location.reload()
+
   }
   useEffect(() => {
     fetchRequests();

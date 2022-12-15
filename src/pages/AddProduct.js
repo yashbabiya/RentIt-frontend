@@ -17,7 +17,7 @@ export default function AddProduct() {
   const [timeduration, settimeduration] = useState("Per Day");
   const [dop, setdop] = useState();
   const [city, setCity] = useState();
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const options = [
@@ -45,15 +45,15 @@ export default function AddProduct() {
 
   const handleSubmit = async () => {
 
-    setIsLoading(true);
+    
     if (
       // true
       name && description && category && rent && timeduration && dop && img
     ) {
 
+      setIsLoading(true);
 
-
-      firebaseUpload(img, name, async (img_url) => {
+      await firebaseUpload(img, name, async (img_url) => {
 
         const reqBody = {
           title: name,
@@ -66,7 +66,7 @@ export default function AddProduct() {
           location: city,
         };
 
-
+      
         const res = await axios.post(API + "/product/create", reqBody, { withCredentials: true }).catch((err) => {
           alert(err.response.data)
           setIsLoading(false)

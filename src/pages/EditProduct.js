@@ -19,6 +19,8 @@ export default function EditProduct() {
   const [dop, setdop] = useState();
   const [city, setCity] = useState();
 
+  const [ isLoading, setIsLoading] = useState(false)
+
   const [product, setProduct] = useState();
 
   const location = useLocation();
@@ -86,18 +88,19 @@ export default function EditProduct() {
       dop
     ) {
 
-
+      setIsLoading(true)
 
       if (img) {
 
-        firebaseUpload(img, product._id, (img) => {
+        await firebaseUpload(img, product._id, (img) => {
           updateProduct(img.data)
         })
       }
 
       else {
-        updateProduct(preview)
+        await updateProduct(preview)
       }
+      setIsLoading(false)
 
     }
   };
@@ -230,8 +233,8 @@ export default function EditProduct() {
           </div>
         </div>
         <div className="flex">
-          <button className="blue" onClick={handleSubmit}>
-            Edit Product
+          <button className="blue" onClick={handleSubmit} disabled={isLoading}>
+             { isLoading ? "Loading ..." : "Edit Product"}
           </button>
         </div>
       </motion.div>

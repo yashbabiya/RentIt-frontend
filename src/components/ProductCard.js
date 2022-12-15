@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import Star from "./Star";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function ProductCard(props) {
 
@@ -16,18 +16,17 @@ export default function ProductCard(props) {
     navigate(`/product/${props._id}`)
   }
   if (props) return <><motion.div 
-  whileHover={{scale:1.01}}
   onClick={openProduct} className="prodCard ">
 
+    <h3>{props.title}</h3>
     {/* <div className="img"> */}
        <img key={props.title} src={props.image} alt="" />
     {/* </div> */}
 
-    <h3>{props.title}</h3>
-    <p>{props.rent}{"₹ "}{props.timeperiod}</p>
+    <p className="price">{props.rent}{"₹ "}{props.timeperiod}</p>
     <p>{props.category}</p>
 
-    <p>{props.location}</p>
+    <p className="location"><LocationOnIcon />{props.location}</p>
     <p> <Star count={props.rating}/> </p>
 
   </motion.div>

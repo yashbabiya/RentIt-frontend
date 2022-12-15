@@ -140,6 +140,11 @@ export default function MyTools() {
                       {prd.rent}
                       {prd.timeperiod}
                     </p>
+                    <p>
+                     {/* from : {changeDateFormat( prd.agreement.from)}<br></br>
+                     to : {changeDateFormat( prd.agreement.to)} */}
+                    </p>
+                    
 
                     {prd.issued ? (
                       <>
@@ -229,6 +234,10 @@ export default function MyTools() {
                     <p>
                       {prd.rent}
                       {prd.timeperiod}
+                    </p>
+                    <p>
+                     from : {changeDateFormat( prd.agreement.from)}<br></br>
+                     to : {changeDateFormat( prd.agreement.to)}
                     </p>
 
 

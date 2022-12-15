@@ -17,6 +17,7 @@ export default function Signup() {
   const [city, setcity] = useState();
   const [mobile, setmobile] = useState();
   const [isError, setIsError] = useState();
+  const [ isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -27,6 +28,8 @@ export default function Signup() {
 
   const handleSubmit = async () => {
     if (!isError) {
+
+      setIsLoading(true)
       const reqBody = {
         username,
         email,
@@ -45,6 +48,9 @@ export default function Signup() {
       } catch (e) {
         alert("User not created !!");
       }
+
+      setIsLoading(false)
+
     }
   };
 
@@ -143,11 +149,11 @@ export default function Signup() {
                 disabled={page === 3}
                 onClick={() => setPage(page === 3 ? page : page + 1)}
               >
-                Previous Next <ArrowCircleRightIcon />
+                Next <ArrowCircleRightIcon />
               </button>
             </div>
-            <button className="blue" disabled={isError} onClick={handleSubmit}>
-              Signup
+            <button className="blue" disabled={isError || isLoading} onClick={handleSubmit}>
+              { isLoading ? "Loading ..." : "Signup"}
             </button>
           </div>
           <Link to="/login">Already have an account</Link>

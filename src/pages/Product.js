@@ -19,6 +19,8 @@ export default function Product() {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const isAssignedToCurrentUser = true;
+
+  const [reqSent,setReqSent] = useState(false)
   const [modelShow, setModelShow] = useState(false);
   const [chooseDate, setChooseDate] = useState(false);
   const [startDate, setStartDate] = useState();
@@ -88,7 +90,7 @@ export default function Product() {
       alert("Please select the start date")
     }
     else {
-
+      setReqSent(true)
       const reqBody = {
         startdate: startDate,
         tilldate: endDate,
@@ -112,6 +114,10 @@ export default function Product() {
       catch (e) {
         alert("Error Occured")
       }
+
+      setReqSent(false)
+      setChooseDate(false)
+
     }
 
   };
@@ -155,7 +161,9 @@ export default function Product() {
               <div className="detailBox">
                 <textarea name="address" value={address} onChange={(e) => setAddress(e.target.value)} id="address" cols="30" rows="10" placeholder="Enter your Address"></textarea>
               </div>
-              <button className="blue" onClick={() => sendRequest()}>Send</button>
+              <button className="blue" onClick={() => sendRequest()} disabled={reqSent}>
+                { reqSent ? "Loading..." :"Send"}
+              </button>
             </div>
           </div>
         )}

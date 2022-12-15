@@ -37,6 +37,10 @@ export default function Explore() {
     }
   };
 
+  useEffect(()=>{
+    fetchProducts()
+  },[])
+
   useEffect(() => {
     if (x1) setKeyWord(x1);
   }, [x1]);
@@ -54,7 +58,7 @@ export default function Explore() {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get(API + "/product/findall");
+      const res = await axios.get(API + "/product/search?keyword=&category=");
       setProducts(res.data);
       setKeyWord("");
       setcategory([]);

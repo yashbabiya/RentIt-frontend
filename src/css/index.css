@@ -169,18 +169,45 @@
 .prodCard {
   min-width: 200px;
   max-width: 350px;
+  min-height: 500px;
   width: 100%;
   padding: 1em;
   border-radius: 1em;
-  box-shadow: 0 0 10px 0.1px gray;
-  background-color: white;
+  box-shadow: 0 0 8px 0.1px gray;
+  transition: 0.5s all ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2em;
+}
+.prodCard:hover {
+  box-shadow: inset 0 0 8px 0.1px gray;
 }
 .prodCard img {
   width: 100%;
   height: 250px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1em !important;
+  margin-bottom: 10px;
+}
+.prodCard .price {
+  background-color: #53C249;
+  color: #D5F3D2;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   border-radius: 1em;
+  padding: 0em 1em;
+}
+.prodCard .location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prodCard .location svg {
+  fill: #BB0303;
 }
 .prodCard h3, .prodCard p {
   width: 100%;
@@ -576,6 +603,9 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+}
+.mytools .listProduct .cards .des {
+  max-width: 20ch;
 }
 .mytools .listProduct .cards .contract {
   display: flex;
@@ -998,6 +1028,8 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .productpage .ownerdetails h2,
 .productpage .ownerdetails p {

@@ -93,18 +93,18 @@ export default function EditProfile() {
 
     setLoading(false)
   }
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
 
+    setLoading(true)
     if (img) {
 
-      firebaseUpload(img, user._id, (img) => {
+      await firebaseUpload(img, user._id, (img) => {
         updateUser(img.data)
       })
     }
     else {
-      updateUser(preview)
+      await updateUser(preview)
     }
-
 
 
   }
