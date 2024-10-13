@@ -46,7 +46,7 @@ export default function Signup() {
           navigate("/login");
         }
       } catch (e) {
-        alert("User not created !!");
+        alert(e?.response?.data || "User not created !!");
       }
 
       setIsLoading(false)

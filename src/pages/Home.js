@@ -8,7 +8,10 @@ import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturi
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ChatIcon from '@mui/icons-material/Chat';
 import TourIcon from '@mui/icons-material/Tour';
+import Chat from '../components/Chat';
+import { useSelector } from 'react-redux';
 export default function Home() {
+  const user = useSelector((state) => state.auth)
   return (
     <motion.div className='page home'
     initial={{ opacity: 0 }}
@@ -23,6 +26,7 @@ export default function Home() {
           <Link className='blue exploreBtn' to='/explore'>
             Explore Now
           </Link>
+          {user?.isLoggedIn && <Chat />}
       </div>
       <div className="bottom">
 
